@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6e61);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        video {
+            width: 60%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .hidden-button {
+            display: none;
+        }
+
+        .button {
+            padding: 12px 24px;
+            font-size: 16px;
+            color: #fff;
+            background: #6200ea;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #3700b3;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            video {
+                width: 90%;
+                max-width: none;
+            }
+
+            .button {
+                width: 90%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hey Ava! What's up? Take a look at this! 😊</h2>
+        <video id="introVideo" autoplay controls playsinline>
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="button-container">
+            <a id="nextPageButton" class="button hidden-button" href="home.html">click to enjoy next page </a>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('introVideo');
+        const button = document.getElementById('nextPageButton');
+
+        video.addEventListener('ended', () => {
+            button.classList.remove('hidden-button');
+        });
+    </script>
+</body>
+</html>
